@@ -1,0 +1,47 @@
+.gradient {
+    width: 512px;
+    height: 512px;
+    background-image: url('project://database/Assets/Textures/gradient.png?fileID=2800000&guid=2d5de65d495b846df821413cc33f373b&type=3#gradient');
+    translate: -50% -50%;
+    position: absolute;
+}
+
+.finger-1 .circle {
+    border-color: red;
+}
+
+.finger-2 .circle {
+    border-color: royalblue;
+}
+
+.finger-3 .circle {
+    border-color: green;
+}
+
+.finger-4 .circle {
+    border-color: gold;
+}
+
+.finger-5 .circle {
+    border-color: darkorchid;
+}
+
+.finger-1 .gradient {
+    -unity-background-image-tint-color: red;
+}
+
+.finger-2 .gradient {
+    -unity-background-image-tint-color: dodgerblue;
+}
+
+.finger-3 .gradient {
+    -unity-background-image-tint-color: green;
+}
+
+.finger-4 .gradient {
+    -unity-background-image-tint-color: gold;
+}
+
+.finger-5 .gradient {
+    -unity-background-image-tint-color: darkorchid;
+}
