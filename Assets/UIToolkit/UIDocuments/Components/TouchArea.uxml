@@ -1,0 +1,48 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Components/TouchArea.uss?fileID=7433441132597879392&amp;guid=5773aff2e291c4ac88841ef329d3d0bd&amp;type=3#TouchArea" />
+    <ui:VisualElement name="Root" class="root">
+        <ui:VisualElement name="Target" class="target">
+            <ui:VisualElement name="Line1" class="target-line-1 target-line" />
+            <ui:VisualElement name="Line2" class="target-line-2 target-line" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger1" class="finger finger-1">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger2" class="finger finger-2">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger3" class="finger finger-3">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger4" class="finger finger-4">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger5" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger6" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger7" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger8" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger9" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Finger10" class="finger finger-5">
+            <ui:VisualElement name="Circle" class="circle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MovingAverageFilter" class="filter moving-average-filter" style="left: 50%; top: 50%;">
+            <ui:VisualElement name="Line1" class="filter-line filter-line-1" />
+            <ui:VisualElement name="Line2" class="filter-line filter-line-2" />
+        </ui:VisualElement>
+        <ui:VisualElement name="HarmonicFilter" class="filter harmonic-filter" style="left: 50%; top: 50%;">
+            <ui:VisualElement name="Line1" class="filter-line filter-line-1" />
+            <ui:VisualElement name="Line2" class="filter-line filter-line-2" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

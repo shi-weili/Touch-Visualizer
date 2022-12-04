@@ -4,8 +4,10 @@ using UnityEngine;
 
 public abstract class BaseFilter
 {
+    // Constants
     public const int MaxNumSamples = 10;
 
+    // Data and states
     int _numSamples = 2;
 
     public int NumSamples
@@ -19,6 +21,8 @@ public abstract class BaseFilter
             }
         }
     }
+
+    // Public functions
 
     /// <summary>
     /// Return filtered result based on samples, using up to NumSamples samples from the end of the samples array.

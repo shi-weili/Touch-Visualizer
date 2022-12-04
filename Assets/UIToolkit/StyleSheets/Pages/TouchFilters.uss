@@ -1,0 +1,13 @@
+.moving-avg-label {
+    color: red;
+}
+
+.harmonic-label {
+    color: blue;
+}
+
+.results-label {
+    font-size: 42px;
+    color: black;
+    height: 42px;
+}

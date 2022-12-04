@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 
 public class HarmonicFilter : BaseFilter
 {
+    // Public functions
     public override Vector2 Filter(Vector2[] samples)
     {
         int actualNumSamples = Math.Min(samples.Length, NumSamples);

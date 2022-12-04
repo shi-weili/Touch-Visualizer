@@ -1,20 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Keiwando.NFSO;
-using Keiwando.NFSO.Samples;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
 
 public class MasterMenuController : MonoBehaviour
 {
+    // Actions
     public Action basicVisualizerButtonClicked;
     public Action touchFiltersButtonClicked;
 
+    // References
     VisualElement root;
     Button basicVisualizerButton;
     Button touchFiltersButton;
 
+    // Life cycle
     void Awake()
     {
         root = FindObjectOfType<UIDocument>().rootVisualElement.Q("MasterMenu");
@@ -36,6 +37,7 @@ public class MasterMenuController : MonoBehaviour
         touchFiltersButton.clicked -= OnTouchFiltersButtonClicked;
     }
 
+    // Handlers
     void OnBasicVisualizerButtonClicked()
     {
         basicVisualizerButtonClicked?.Invoke();

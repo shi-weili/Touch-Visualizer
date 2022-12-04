@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour
 {
+    // References
     MasterMenuController masterMenuController;
     BasicVisualizerController basicVisualizerController;
     TouchFiltersController touchFiltersController;
 
+    // Data and states
     enum State
     {
         MasterMenu,
@@ -17,6 +19,7 @@ public class StateController : MonoBehaviour
 
     State state = State.MasterMenu;
 
+    // Life cycle
     void Awake()
     {
         masterMenuController = GetComponentInChildren<MasterMenuController>();
@@ -45,6 +48,7 @@ public class StateController : MonoBehaviour
         touchFiltersController.backButtonClicked -= OnBackButtonClicked;
     }
 
+    // Helper functions
     void SetState(State newState, bool force = false)
     {
         if (newState == state && !force)
@@ -80,6 +84,7 @@ public class StateController : MonoBehaviour
         state = newState;
     }
 
+    // Handlers
     void OnBasicVisualizerButtonClicked()
     {
         SetState(State.BasicVisualizer);

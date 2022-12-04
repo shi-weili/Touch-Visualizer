@@ -1,31 +1,36 @@
+using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Keiwando.NFSO;
 using Keiwando.NFSO.Samples;
-using System.IO;
-using System;
 
 public class BasicVisualizerController : MonoBehaviour
 {
+    // Actions
     public Action backButtonClicked;
 
+    // Constants
     const int MaxMultiTouches = 5;
 
+    // References
     VisualElement root;
     Button backButton;
-    VisualElement fingerContainer;
+    VisualElement touchArea;
     VisualElement[] fingers = new VisualElement[MaxMultiTouches];
 
+    // Data and states
     bool hadTouchInLastFrame = false;
-    Dictionary<int, int> touchToFinger = new Dictionary<int, int>(); // Map Touch.fingerId to finger
+    Dictionary<int, int> touchToFinger = new Dictionary<int, int>(); // Map Touch.fingerId to finger UI element
 
+    // Life cycle
     void Awake()
     {
         root = FindObjectOfType<UIDocument>().rootVisualElement.Q("BasicVisualizer");
         backButton = root.Q<Button>("BackButton");
-        fingerContainer = root.Q("FingerContainer");
+        touchArea = root.Q("TouchArea");
 
         for (int i = 1; i <= MaxMultiTouches; i++)
         {
@@ -51,6 +56,7 @@ public class BasicVisualizerController : MonoBehaviour
         ProcessTouches();
     }
 
+    // Helper functions
     void ProcessTouches()
     {
         Boolean hasTouchInCurrentFrame = false;
@@ -68,7 +74,7 @@ public class BasicVisualizerController : MonoBehaviour
                 touch.position.x,
                 Screen.height - touch.position.y);
 
-            if (fingerContainer.localBound.Contains(localTouchPosition))
+            if (touchArea.localBound.Contains(localTouchPosition))
             {
                 if (!touchToFinger.ContainsKey(touch.fingerId)
                     && touchToFinger.Count < MaxMultiTouches)
@@ -111,10 +117,12 @@ public class BasicVisualizerController : MonoBehaviour
         }
     }
 
+    // Handlers
     void OnBackButtonClicked()
     {
         backButtonClicked?.Invoke();
 
+        // TODO: Move file saving code to where it's actually needed
         //FileWriter.WriteTestFile(Application.persistentDataPath);
         //NativeFileSO.shared.SaveFile(GetFileToSave());
     }

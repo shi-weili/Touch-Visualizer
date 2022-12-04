@@ -6,6 +6,20 @@
     position: absolute;
 }
 
+.finger {
+    position: absolute;
+}
+
+.finger .circle {
+    width: 100px;
+    height: 100px;
+    border-width: 5px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: var(--light-gray);
+    translate: -50% -50%;
+}
+
 .finger-1 .circle {
     border-color: red;
 }
