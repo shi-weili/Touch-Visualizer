@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="TouchArea" src="project://database/Assets/UIToolkit/UIDocuments/Components/TouchArea.uxml?fileID=9197481963319205126&amp;guid=85135a1d387c24829931292af95cd5fd&amp;type=3#TouchArea" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Pages/BenchmarkGame.uss?fileID=7433441132597879392&amp;guid=40aa7bbe6f80a4aceb820334aad8baa1&amp;type=3#BenchmarkGame" />
+    <ui:VisualElement name="Root" class="root">
+        <ui:Instance template="TouchArea" name="TouchArea" class="full-size" />
+        <ui:VisualElement name="UIContainer" class="ui-container">
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:VisualElement name="UICol" class="ui-col">
+                    <ui:Label text="Points" display-tooltip-when-elided="true" name="PointsTitleLabel" class="col-title" />
+                    <ui:Label text="10" display-tooltip-when-elided="true" name="PointsValueLabel" class="col-value" />
+                </ui:VisualElement>
+                <ui:VisualElement name="UICol" class="ui-col">
+                    <ui:Label text="Time" display-tooltip-when-elided="true" name="TimeTitleLabel" class="col-title" />
+                    <ui:Label text="30" display-tooltip-when-elided="true" name="TimeValueLabel" class="col-value" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row">
+                <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

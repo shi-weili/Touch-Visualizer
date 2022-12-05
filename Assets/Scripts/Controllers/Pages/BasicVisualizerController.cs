@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Keiwando.NFSO;
-using Keiwando.NFSO.Samples;
 
 public class BasicVisualizerController : MonoBehaviour
 {
@@ -121,15 +119,5 @@ public class BasicVisualizerController : MonoBehaviour
     void OnBackButtonClicked()
     {
         backButtonClicked?.Invoke();
-
-        // TODO: Move file saving code to where it's actually needed
-        //FileWriter.WriteTestFile(Application.persistentDataPath);
-        //NativeFileSO.shared.SaveFile(GetFileToSave());
-    }
-
-    FileToSave GetFileToSave()
-    {
-        var testFilePath = Path.Combine(Application.persistentDataPath, "NativeFileSOTest.txt");
-        return new FileToSave(testFilePath, "NativeFileSOTest.txt", SupportedFileType.PlainText);
     }
 }

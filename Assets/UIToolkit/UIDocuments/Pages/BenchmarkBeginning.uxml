@@ -1,0 +1,48 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Pages/BenchmarkBeginning.uss?fileID=7433441132597879392&amp;guid=a4174dc3804374820834a7dbd108b657&amp;type=3#BenchmarkBeginning" />
+    <ui:VisualElement name="Root" class="root benchmark-beginning">
+        <ui:Label text="Human Benchmarking" display-tooltip-when-elided="true" name="Title" class="title" />
+        <ui:VisualElement name="UIContainer" class="button-container ui-container">
+            <ui:VisualElement name="UIRow" class="ui-row">
+                <ui:Label text="In this game, you are going to tap a small target. Your taps will be enhanced by the filter you choose. Whenever the filtered tap position falls within the target area, you gain a point. Win as many points as you can!" display-tooltip-when-elided="true" name="Paragraph" class="paragraph" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row">
+                <ui:Label text="Filter" display-tooltip-when-elided="true" name="FilterLabel" class="label-bold" />
+                <ui:Button display-tooltip-when-elided="true" name="AvgToggle" class="toggle selected">
+                    <ui:VisualElement name="Circle" class="circle" />
+                </ui:Button>
+                <ui:Label text="Avg" display-tooltip-when-elided="true" name="AvgLabel" class="label-bold moving-avg-label" />
+                <ui:VisualElement name="Padding" class="col-padding" style="width: 50px;" />
+                <ui:Button display-tooltip-when-elided="true" name="HarmonicToggle" class="toggle selected">
+                    <ui:VisualElement name="Circle" class="circle" />
+                </ui:Button>
+                <ui:Label text="Harmonic" display-tooltip-when-elided="true" name="HarmonicLabel" class="label-bold harmonic-label" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-right-aligned">
+                <ui:Label text="Samples" display-tooltip-when-elided="true" name="SamplesLabel" class="label-bold" />
+                <ui:Button text="-" display-tooltip-when-elided="true" name="NumSamplesDownButton" class="button number-button square-button" />
+                <ui:Label text="2" display-tooltip-when-elided="true" name="NumSamplesLabel" class="label-number" />
+                <ui:Button text="+" display-tooltip-when-elided="true" name="NumSamplesUpButton" class="button number-button square-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-right-aligned">
+                <ui:Label text="Target Radius" display-tooltip-when-elided="true" name="TargetRadiusLabel" class="label-bold" />
+                <ui:Button text="-" display-tooltip-when-elided="true" name="RadiusDownButton" class="button number-button square-button" />
+                <ui:Label text="20px" display-tooltip-when-elided="true" name="RadiusLabel" class="label-number" />
+                <ui:Button text="+" display-tooltip-when-elided="true" name="RadiusUpButton" class="button number-button square-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-right-aligned ui-row-pad-bottom">
+                <ui:Label text="Time Limit" display-tooltip-when-elided="true" name="TimeLimitLabel" class="label-bold" />
+                <ui:Button text="-" display-tooltip-when-elided="true" name="TimeDownButton" class="button number-button square-button" />
+                <ui:Label text="30s" display-tooltip-when-elided="true" name="TimeLabel" class="label-number" />
+                <ui:Button text="+" display-tooltip-when-elided="true" name="TimeUpButton" class="button number-button square-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:Button text="Begin" display-tooltip-when-elided="true" name="BeginButton" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row">
+                <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

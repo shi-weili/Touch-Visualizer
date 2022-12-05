@@ -2,10 +2,12 @@
     <ui:Template name="MasterMenu" src="project://database/Assets/UIToolkit/UIDocuments/Pages/MasterMenu.uxml?fileID=9197481963319205126&amp;guid=c14a641438c964f8da9e0a320f04fe08&amp;type=3#MasterMenu" />
     <ui:Template name="BasicVisualizer" src="project://database/Assets/UIToolkit/UIDocuments/Pages/BasicVisualizer.uxml?fileID=9197481963319205126&amp;guid=5cbd6e1183569401e912eb4690f787aa&amp;type=3#BasicVisualizer" />
     <ui:Template name="TouchFilters" src="project://database/Assets/UIToolkit/UIDocuments/Pages/TouchFilters.uxml?fileID=9197481963319205126&amp;guid=7996f445ba6624d149d001cbd19da3e5&amp;type=3#TouchFilters" />
+    <ui:Template name="BenchmarkMaster" src="project://database/Assets/UIToolkit/UIDocuments/Pages/BenchmarkMaster.uxml?fileID=9197481963319205126&amp;guid=75adf3f3ac8e0474f942bdee75d7eb99&amp;type=3#BenchmarkMaster" />
     <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
     <ui:VisualElement name="Root" class="root">
         <ui:Instance template="MasterMenu" name="MasterMenu" class="full-size" />
         <ui:Instance template="BasicVisualizer" name="BasicVisualizer" class="full-size" style="display: none;" />
         <ui:Instance template="TouchFilters" name="TouchFilters" class="full-size" style="display: none;" />
+        <ui:Instance template="BenchmarkMaster" name="BenchmarkMaster" class="full-size" style="display: none;" />
     </ui:VisualElement>
 </ui:UXML>

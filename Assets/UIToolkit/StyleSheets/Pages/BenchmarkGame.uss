@@ -1,0 +1,12 @@
+.col-title {
+    font-size: 48px;
+    color: black;
+}
+
+.col-value {
+    font-size: 120px;
+    -unity-font-style: bold;
+    color: black;
+    width: 200px;
+    -unity-text-align: upper-center;
+}

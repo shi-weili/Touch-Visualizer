@@ -11,6 +11,10 @@ public class TouchFiltersController : MonoBehaviour
     // Actions
     public Action backButtonClicked;
 
+    // Constants
+    const int DefaultNumSamples = 2;
+    const int DeltaNumSamples = 1;
+
     // References
     VisualElement root;
 
@@ -141,11 +145,11 @@ public class TouchFiltersController : MonoBehaviour
         {
             float movingAverageFilterOffset = Vector2.Distance(
                 touchArea.MovingAverageFilterResult.Value,
-                touchArea.TargetPosition);
+                touchArea.TargetPositionInPixel);
 
             float harmonicFilterOffset = Vector2.Distance(
                 touchArea.HarmonicFilterResult.Value,
-                touchArea.TargetPosition);
+                touchArea.TargetPositionInPixel);
 
             if (touchArea.ShowMovingAverageFilter && touchArea.ShowHarmonicFilter)
             {
@@ -176,12 +180,11 @@ public class TouchFiltersController : MonoBehaviour
                         "<color=blue>Harmonic: {0:0.00} px off</color>", harmonicFilterOffset);
             }
         }
-
     }
 
     void ResetNumSamples()
     {
-        touchArea.NumSamples = 2;
+        touchArea.NumSamples = DefaultNumSamples;
         numSamplesLabel.text = touchArea.NumSamples.ToString();
     }    
 
@@ -195,12 +198,12 @@ public class TouchFiltersController : MonoBehaviour
     // Handlers
     void OnDownButtonClicked()
     {
-        UpdateNumSamples(-1);
+        UpdateNumSamples(-DeltaNumSamples);
     }
 
     void OnUpButtonClicked()
     {
-        UpdateNumSamples(1);
+        UpdateNumSamples(DeltaNumSamples);
     }
 
     void OnAvgToggleClicked(bool selected)

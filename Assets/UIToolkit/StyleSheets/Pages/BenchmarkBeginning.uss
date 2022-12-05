@@ -1,9 +1,8 @@
-.master-menu {
+.benchmark-beginning {
     background-color: var(--middle-gray);
 }
 
-.button-container {
-    align-items: center;
+.ui-container {
     margin-top: 100px;
     margin-bottom: 100px;
 }

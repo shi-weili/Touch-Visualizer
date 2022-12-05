@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BenchmarkBeginning" src="project://database/Assets/UIToolkit/UIDocuments/Pages/BenchmarkBeginning.uxml?fileID=9197481963319205126&amp;guid=b45ed3d4e2d6a4c589717efa7e2fd84a&amp;type=3#BenchmarkBeginning" />
+    <ui:Template name="BenchmarkGame" src="project://database/Assets/UIToolkit/UIDocuments/Pages/BenchmarkGame.uxml?fileID=9197481963319205126&amp;guid=49008b8db88624cab955ebb56795a0d8&amp;type=3#BenchmarkGame" />
+    <ui:Template name="BenchmarkEnd" src="project://database/Assets/UIToolkit/UIDocuments/Pages/BenchmarkEnd.uxml?fileID=9197481963319205126&amp;guid=11e8da2ab22d54d11bae6fca8b392de3&amp;type=3#BenchmarkEnd" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
+    <ui:VisualElement name="Root" class="root">
+        <ui:Instance template="BenchmarkBeginning" name="BenchmarkBeginning" class="full-size" />
+        <ui:Instance template="BenchmarkGame" name="BenchmarkGame" class="full-size" style="display: none;" />
+        <ui:Instance template="BenchmarkEnd" name="BenchmarkEnd" class="full-size" style="display: none;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Pages/BenchmarkEnd.uss?fileID=7433441132597879392&amp;guid=da552816fb1cd4c0c9534df07b671d33&amp;type=3#BenchmarkEnd" />
+    <ui:VisualElement name="Root" class="root benchmark-beginning">
+        <ui:Label text="Your Points" display-tooltip-when-elided="true" name="PointsTitle" class="title" />
+        <ui:Label text="20" display-tooltip-when-elided="true" name="PointsLabel" class="points-label" />
+        <ui:Label text="Your Taps" display-tooltip-when-elided="true" name="TapsTitle" class="title" />
+        <ui:Label text="35" display-tooltip-when-elided="true" name="TapsLabel" class="points-label" />
+        <ui:Label text="Taps per Point" display-tooltip-when-elided="true" name="TapsPerPointTitle" class="title" />
+        <ui:Label text="1.75" display-tooltip-when-elided="true" name="TapsPerPointLabel" class="points-label" />
+        <ui:VisualElement name="UIContainer" class="button-container ui-container">
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:Button text="Save Logs" display-tooltip-when-elided="true" name="SaveLogsButton" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row">
+                <ui:Button text="Finish" display-tooltip-when-elided="true" name="FinishButton" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

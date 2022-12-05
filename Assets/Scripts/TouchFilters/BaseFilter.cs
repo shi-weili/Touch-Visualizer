@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BaseFilter
 {
     // Constants
+    public const int MinNumSamples = 1;
     public const int MaxNumSamples = 10;
 
     // Data and states
@@ -15,7 +16,7 @@ public abstract class BaseFilter
         get => _numSamples;
         set
         {
-            if (value > 0 && value <= MaxNumSamples)
+            if (value >= MinNumSamples && value <= MaxNumSamples)
             {
                 _numSamples = value;
             }

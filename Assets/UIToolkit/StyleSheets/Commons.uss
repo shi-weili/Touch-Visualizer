@@ -17,6 +17,21 @@
     height: 100%;
 }
 
+.title {
+    font-size: 80px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: black;
+}
+
+.paragraph {
+    font-size: 48px;
+    white-space: normal;
+    width: 75%;
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+}
+
 .ui-container {
     background-color: var(--middle-gray);
     width: 100%;
@@ -37,6 +52,19 @@
 
 .ui-row-pad-bottom {
     padding-bottom: 60px;
+}
+
+.ui-row-right-aligned {
+    justify-content: flex-end;
+    width: 55%;
+}
+
+.ui-col {
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .col-padding {
@@ -72,7 +100,7 @@
 }
 
 .label-number {
-    width: 60px;
+    width: 80px;
     font-size: 48px;
     color: rgb(0, 0, 0);
     -unity-text-align: upper-center;
@@ -107,7 +135,3 @@
 .toggle.selected .circle {
     visibility: visible;
 }
-
-
-
-

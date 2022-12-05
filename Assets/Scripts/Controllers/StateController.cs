@@ -8,13 +8,15 @@ public class StateController : MonoBehaviour
     MasterMenuController masterMenuController;
     BasicVisualizerController basicVisualizerController;
     TouchFiltersController touchFiltersController;
+    BenchmarkController benchmarkController;
 
     // Data and states
     enum State
     {
         MasterMenu,
         BasicVisualizer,
-        TouchFilters
+        TouchFilters,
+        Benchmark
     }
 
     State state = State.MasterMenu;
@@ -25,6 +27,7 @@ public class StateController : MonoBehaviour
         masterMenuController = GetComponentInChildren<MasterMenuController>();
         basicVisualizerController = GetComponentInChildren<BasicVisualizerController>();
         touchFiltersController = GetComponentInChildren<TouchFiltersController>();
+        benchmarkController = GetComponentInChildren<BenchmarkController>();
     }
 
     void Start()
@@ -36,16 +39,20 @@ public class StateController : MonoBehaviour
     {
         masterMenuController.basicVisualizerButtonClicked += OnBasicVisualizerButtonClicked;
         masterMenuController.touchFiltersButtonClicked += OnTouchFiltersButtonClicked;
+        masterMenuController.benchmarkButtonClicked += OnBenchmarkButtonClicked;
         basicVisualizerController.backButtonClicked += OnBackButtonClicked;
         touchFiltersController.backButtonClicked += OnBackButtonClicked;
+        benchmarkController.backButtonClicked += OnBackButtonClicked;
     }
 
     void OnDisable()
     {
         masterMenuController.basicVisualizerButtonClicked -= OnBasicVisualizerButtonClicked;
         masterMenuController.touchFiltersButtonClicked -= OnTouchFiltersButtonClicked;
+        masterMenuController.benchmarkButtonClicked -= OnBenchmarkButtonClicked;
         basicVisualizerController.backButtonClicked -= OnBackButtonClicked;
         touchFiltersController.backButtonClicked -= OnBackButtonClicked;
+        benchmarkController.backButtonClicked -= OnBackButtonClicked;
     }
 
     // Helper functions
@@ -63,6 +70,8 @@ public class StateController : MonoBehaviour
                     masterMenuController.enabled = true;
                     basicVisualizerController.enabled = false;
                     touchFiltersController.enabled = false;
+                    benchmarkController.enabled = false;
+
                     break;
                 }
             case State.BasicVisualizer:
@@ -70,6 +79,8 @@ public class StateController : MonoBehaviour
                     masterMenuController.enabled = false;
                     basicVisualizerController.enabled = true;
                     touchFiltersController.enabled = false;
+                    benchmarkController.enabled = false;
+
                     break;
                 }
             case State.TouchFilters:
@@ -77,6 +88,17 @@ public class StateController : MonoBehaviour
                     masterMenuController.enabled = false;
                     basicVisualizerController.enabled = false;
                     touchFiltersController.enabled = true;
+                    benchmarkController.enabled = false;
+
+                    break;
+                }
+            case State.Benchmark:
+                {
+                    masterMenuController.enabled = false;
+                    basicVisualizerController.enabled = false;
+                    touchFiltersController.enabled = false;
+                    benchmarkController.enabled = true;
+
                     break;
                 }
         }
@@ -93,6 +115,11 @@ public class StateController : MonoBehaviour
     void OnTouchFiltersButtonClicked()
     {
         SetState(State.TouchFilters);
+    }
+
+    void OnBenchmarkButtonClicked()
+    {
+        SetState(State.Benchmark);
     }
 
     void OnBackButtonClicked()

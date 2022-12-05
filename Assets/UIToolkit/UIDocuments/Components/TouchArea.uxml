@@ -3,6 +3,7 @@
     <Style src="project://database/Assets/UIToolkit/StyleSheets/Components/TouchArea.uss?fileID=7433441132597879392&amp;guid=5773aff2e291c4ac88841ef329d3d0bd&amp;type=3#TouchArea" />
     <ui:VisualElement name="Root" class="root">
         <ui:VisualElement name="Target" class="target">
+            <ui:VisualElement name="Radius" class="target-radius" />
             <ui:VisualElement name="Line1" class="target-line-1 target-line" />
             <ui:VisualElement name="Line2" class="target-line-2 target-line" />
         </ui:VisualElement>

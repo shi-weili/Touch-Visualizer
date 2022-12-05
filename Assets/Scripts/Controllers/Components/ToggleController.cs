@@ -14,7 +14,8 @@ public class ToggleController
 
     // Data and states
     bool isSelected;
-    bool isTouchEnabled;
+    bool isTouchEnabled = false;
+    bool onlyAllowToggleOn;
 
     // Public functions
 
@@ -22,12 +23,13 @@ public class ToggleController
     /// Create a ToogleController instance using a toggle UI reference and a initial state.
     /// </summary>
     /// <param name="toggle">Of UIElements.Button type. Has to be a toggle.</param>
-    /// <param name="initialState"></param>
-    public ToggleController(Button toggle, bool selected, bool enableTouch = false)
+    /// <param name="onlyAllowToggleOn">If true, can't be toggled off by clicking.</param>
+    public ToggleController(Button toggle, bool selected, bool onlyAllowToggleOn = false)
     {
         this.toggle = toggle;
         SetState(selected);
-        SetTouchEnabled(enableTouch);
+        this.onlyAllowToggleOn = onlyAllowToggleOn;
+        SetTouchEnabled(false);
     }
 
     public void SetState(bool selected)
@@ -61,7 +63,15 @@ public class ToggleController
     // Handlers
     void OnClicked()
     {
-        SetState(!isSelected);
+        if (isSelected && !onlyAllowToggleOn)
+        {
+            SetState(false);
+        }
+        else if (!isSelected)
+        {
+            SetState(true);
+        }
+
         clicked?.Invoke(isSelected);
     }
 }

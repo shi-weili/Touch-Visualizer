@@ -11,12 +11,21 @@ public class TouchAreaController
     // Actions
     public Action<Vector2[]> tapped;
 
+    // Constants
+    float MinTargetPositionX = 0.3f;
+    float MaxTargetPositionX = 0.7f;
+    float MinTargetPositionY = 0.2f;
+    float MaxTargetPositionY = 0.8f;
+
     // References
     VisualElement root;
     VisualElement[] fingers = new VisualElement[BaseFilter.MaxNumSamples];
     VisualElement movingAverageFilterVE;
     VisualElement harmonicFilterVE;
     VisualElement target;
+    VisualElement targetLine1;
+    VisualElement targetLine2;
+    VisualElement targetRadiusVE;
 
     BaseFilter movingAverageFilter = new MovingAverageFilter();
     BaseFilter harmonicFilter = new HarmonicFilter();
@@ -30,6 +39,16 @@ public class TouchAreaController
             _numSamples = Math.Clamp(value, 1, BaseFilter.MaxNumSamples);
             UpdateFingers();
             UpdateFilterResults();
+        }
+    }
+
+    public float TargetRadius
+    {
+        get => _targetRadius;
+        set
+        {
+            _targetRadius = value;
+            UpdateTargetRadius();
         }
     }
 
@@ -63,6 +82,21 @@ public class TouchAreaController
         }
     }
 
+    public bool ShowTargetRadius
+    {
+        get => _showTargetRadius;
+        set
+        {
+            _showTargetRadius = value;
+            UpdateTargetVisibility();
+        }
+    }
+
+    public Vector2[] NewlyProcessedTouches
+    {
+        get => newlyProcessedTouches.ToArray();
+    }
+
     public Vector2? MovingAverageFilterResult
     {
         get => movingAverageFilterResult;
@@ -75,19 +109,35 @@ public class TouchAreaController
 
     public Vector2 TargetPosition
     {
-        get => target.layout.center;
+        get => _targetPosition;
+        private set
+        {
+            _targetPosition = value;
+            UpdateTargetPosition();
+        }
+    }
+
+    public Vector2 TargetPositionInPixel
+    {
+        get => new Vector2(
+            root.localBound.xMin + _targetPosition.x * root.localBound.width,
+            root.localBound.yMin + _targetPosition.y * root.localBound.height);
     }
 
     // Internal Data and states
     Queue<Vector2> touchQueue = new Queue<Vector2>();
+    List<Vector2> newlyProcessedTouches = new List<Vector2>();
 
     Vector2? movingAverageFilterResult = null;
     Vector2? harmonicFilterResult = null;
 
     int _numSamples = 2;
+    float _targetRadius = 20.0f;
     bool _showMovingAverageFilter = true;
     bool _showHarmonicFilter = true;
     bool _showTarget = false;
+    bool _showTargetRadius = false;
+    Vector2 _targetPosition; // Normalized position
 
     // Public functions
     public TouchAreaController(VisualElement touchAreaVE)
@@ -102,6 +152,11 @@ public class TouchAreaController
         movingAverageFilterVE = root.Q("MovingAverageFilter");
         harmonicFilterVE = root.Q("HarmonicFilter");
         target = root.Q("Target");
+        targetLine1 = root.Q("Line1");
+        targetLine2 = root.Q("Line2");
+        targetRadiusVE = root.Q("Radius");
+
+        ResetTargetPosition();
     }
 
     public void ClearTouchQueue()
@@ -119,6 +174,7 @@ public class TouchAreaController
     public bool ProcessTouches()
     {
         bool hasUpdatedTouchQueue = false;
+        newlyProcessedTouches.Clear();
 
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -136,6 +192,7 @@ public class TouchAreaController
             if (root.localBound.Contains(localTouchPosition))
             {
                 touchQueue.Enqueue(localTouchPosition);
+                newlyProcessedTouches.Add(localTouchPosition);
 
                 while (touchQueue.Count > BaseFilter.MaxNumSamples)
                 {
@@ -156,6 +213,13 @@ public class TouchAreaController
         {
             return false;
         }
+    }
+
+    public void SetRandomTargetPosition()
+    {
+        TargetPosition = new Vector2(
+            UnityEngine.Random.Range(MinTargetPositionX, MaxTargetPositionX),
+            UnityEngine.Random.Range(MinTargetPositionY, MaxTargetPositionY));
     }
 
     // Helper functions
@@ -251,5 +315,37 @@ public class TouchAreaController
         {
             target.style.visibility = Visibility.Hidden;
         }
+
+        if (ShowTargetRadius)
+        {
+            targetRadiusVE.style.visibility = Visibility.Visible;
+        }
+        else
+        {
+            targetRadiusVE.style.visibility = Visibility.Hidden;
+        }
+    }
+
+    void UpdateTargetRadius()
+    {
+        targetRadiusVE.style.width = TargetRadius * 2.0f;
+        targetRadiusVE.style.height = TargetRadius * 2.0f;
+    }
+
+
+    void ResetTargetPosition()
+    {
+        TargetPosition = new Vector2(0.5f, 0.5f);
+    }
+
+    void UpdateTargetPosition()
+    {
+        StyleLength xPercentage = new StyleLength(new Length(TargetPosition.x * 100.0f, LengthUnit.Percent));
+        StyleLength yPercentage = new StyleLength(new Length(TargetPosition.y * 100.0f, LengthUnit.Percent));
+
+        targetLine1.style.top = yPercentage;
+        targetLine2.style.left = xPercentage;
+        targetRadiusVE.style.top = yPercentage;
+        targetRadiusVE.style.left = xPercentage;
     }
 }

@@ -1,11 +1,18 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIToolkit/StyleSheets/Commons.uss?fileID=7433441132597879392&amp;guid=ed53583a5a6b54d02892621320926b61&amp;type=3#Commons" />
-    <Style src="project://database/Assets/UIToolkit/StyleSheets/MasterMenu.uss?fileID=7433441132597879392&amp;guid=202814c8c6dbd428eae1e7fbb964a5d8&amp;type=3#MasterMenu" />
+    <Style src="project://database/Assets/UIToolkit/StyleSheets/Pages/MasterMenu.uss?fileID=7433441132597879392&amp;guid=202814c8c6dbd428eae1e7fbb964a5d8&amp;type=3#MasterMenu" />
     <ui:VisualElement name="Root" class="root master-menu">
         <ui:Label text="Touch Visualizer" display-tooltip-when-elided="true" name="Title" class="title" />
         <ui:VisualElement name="ButtonContainer" class="button-container">
-            <ui:Button text="Basic Visualizer" display-tooltip-when-elided="true" name="BasicVisualizerButton" class="button" />
-            <ui:Button text="Touch Filters" display-tooltip-when-elided="true" name="TouchFiltersButton" class="button" />
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:Button text="Basic Visualizer" display-tooltip-when-elided="true" name="BasicVisualizerButton" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:Button text="Touch Filters" display-tooltip-when-elided="true" name="TouchFiltersButton" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UIRow" class="ui-row ui-row-pad-bottom">
+                <ui:Button text="Benchmark" display-tooltip-when-elided="true" name="BenchmarkButton" class="button" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
