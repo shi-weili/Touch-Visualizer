@@ -11,6 +11,7 @@
      * Benmark game
  
  * Demo video: https://youtu.be/K0C1Lnbmw4U
+ * Log sample: https://drive.google.com/file/d/1v4Gqoou21Nn5UK1B9G6FShs4u-uQutos/view?usp=share_link
  
  ## Dependencies
  * Unity 2021.3.15f1 
